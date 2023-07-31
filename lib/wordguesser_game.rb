@@ -44,12 +44,8 @@ class WordGuesserGame
     display
   end
 
-  def word_guessed?
-    @word.chars.all? { |char| @guesses.include?(char) }
-  end
-
   def check_win_or_lose
-    if word_guessed?
+    if @word.chars.all? { |char| @guesses.include?(char) }
       return :win
     elsif @wrong_guesses.length >= 7
       return :lose
